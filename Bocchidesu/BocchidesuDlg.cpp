@@ -191,12 +191,12 @@ void CBocchidesuDlg::OnBnClickedButton1()
 	}
 	if (i > 1) {           //大于1，弹窗提示正在运行，否则不在运行
 		WinExec("killnginx.cmd", SW_HIDE);
-		WinExec("cmd.exe /k hostsrestore.cmd", SW_HIDE);
+		WinExec("hosts.exe", SW_HIDE);
 		MessageBox(_T("关闭成功"), _T("提示"));
 	}
-	else {
-		WinExec("startnginx.cmd", SW_HIDE);
-		WinExec("cmd.exe /k hostsbackup.cmd", SW_HIDE);
+	else 
+	{
+		WinExec("nginx.exe", SW_HIDE);
 		if (BST_CHECKED == IsDlgButtonChecked(IDC_CHECK1))     //IDC_CHECK1是CheckBox控件。
 		{
 			WinExec("cmd.exe /k cd comands && ao3.cmd", SW_HIDE);
@@ -229,6 +229,6 @@ void CBocchidesuDlg::OnBnClickedButton1()
 		{
 			WinExec("cmd.exe /k cd comands && nyaa.cmd", SW_HIDE);
 		}
-		MessageBox(_T("启动成功"), _T("提示"));
+		MessageBox("开启成功（不知道是不是成功了，如果不能访问就提交issues）");
 	}
 }
