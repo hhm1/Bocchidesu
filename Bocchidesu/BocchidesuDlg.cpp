@@ -50,8 +50,6 @@ END_MESSAGE_MAP()
 // CBocchidesuDlg 对话框
 
 BEGIN_DHTML_EVENT_MAP(CBocchidesuDlg)
-	DHTML_EVENT_ONCLICK(_T("ButtonOK"), OnButtonOK)
-	DHTML_EVENT_ONCLICK(_T("ButtonCancel"), OnButtonCancel)
 END_DHTML_EVENT_MAP()
 
 CBocchidesuDlg::CBocchidesuDlg(CWnd* pParent /*=nullptr*/)
@@ -156,18 +154,6 @@ HCURSOR CBocchidesuDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-HRESULT CBocchidesuDlg::OnButtonOK(IHTMLElement* /*pElement*/)
-{
-	OnOK();
-	return S_OK;
-}
-
-HRESULT CBocchidesuDlg::OnButtonCancel(IHTMLElement* /*pElement*/)
-{
-	OnCancel();
-	return S_OK;
-}
-
 void CBocchidesuDlg::OnBnClickedButton1()
 {
 	int i = 0;
@@ -199,7 +185,7 @@ void CBocchidesuDlg::OnBnClickedButton1()
 		WinExec("nginx.exe", SW_HIDE);
 		if (BST_CHECKED == IsDlgButtonChecked(IDC_CHECK1))     //IDC_CHECK1是CheckBox控件。
 		{
-			WinExec("cmd.exe /k cd comands && ao3.cmd", SW_HIDE);
+			WinExec("cmd.exe /k cd comands && onedrive.cmd",SW_HIDE);
 		}
 		if (BST_CHECKED == IsDlgButtonChecked(IDC_CHECK2))
 		{
@@ -228,6 +214,14 @@ void CBocchidesuDlg::OnBnClickedButton1()
 		if (BST_CHECKED == IsDlgButtonChecked(IDC_CHECK8))
 		{
 			WinExec("cmd.exe /k cd comands && nyaa.cmd", SW_HIDE);
+		}
+		if (BST_CHECKED == IsDlgButtonChecked(IDC_CHECK9))
+		{
+			WinExec("cmd.exe /k cd comands && v2ex.cmd", SW_HIDE);
+		}
+		if (BST_CHECKED == IsDlgButtonChecked(IDC_CHECK10))
+		{
+			WinExec("cmd.exe /k cd comands && gravatar.cmd", SW_HIDE);
 		}
 		MessageBox("开启成功（不知道是不是成功了，如果不能访问就提交issues）");
 	}
